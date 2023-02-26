@@ -24,8 +24,11 @@ const PokeContextProvider = ({ children }) => {
     try {
       const response = await fetch(param);
       if (!response.ok) {
-        dispatch({ type: "NOT_FOUND", payload: true });
-        return;
+        if (state.searchVal) {
+          dispatch({ type: "NOT_FOUND", payload: true });
+          return;
+        }
+        throw new Error("404 Error");
       }
       const data = await response.json();
       if (data.previous === undefined) {
@@ -87,7 +90,7 @@ const PokeContextProvider = ({ children }) => {
   };
 
   const topHeight = `${Math.round(window.scrollY)}px`;
-  
+
   return (
     <PokeContext.Provider
       value={{

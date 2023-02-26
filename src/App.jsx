@@ -8,7 +8,7 @@ function App() {
   return (
     <main>
       <Modal />
-      <div className={`${modal && "relative -z-30 h-screen opacity-60 "}`}>
+      <div className={`${modal && "relative -z-30 h-screen opacity-50 "}`}>
         <div className="bg-green-200 min-h-screen">
           <div className="max-w-7xl mx-auto px-5 py-7">
             <SearchForm />
