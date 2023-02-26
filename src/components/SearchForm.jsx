@@ -2,7 +2,9 @@ import { usePokeContext } from "../context";
 import NavigationBtns from "./NavigationBtns";
 
 const SearchForm = () => {
-  const { searchVal, setSearchVal } = usePokeContext();
+  const { searchVal, setSearchVal, handleSearch, pokemonList, backHome } =
+    usePokeContext();
+    
   return (
     <div>
       <div className="flex justify-center items-center lg:justify-between flex-wrap gap-y-4">
@@ -19,15 +21,25 @@ const SearchForm = () => {
           />
           <button
             type="submit"
-            className="px-4 py-2.5 border-2 rounded-xl bg-red-400 text-white hover:bg-orange-400 hover:scale-110 duration-300"
+            className="px-5 py-3 border-2 rounded-xl bg-red-400 text-white hover:bg-orange-400 hover:scale-110 duration-300 mr-7"
+            onClick={handleSearch}
           >
             Search
           </button>
+          {pokemonList.length === 1 && (
+            <button
+              className="px-4 py-2.5 bg-red-400 text-white rounded-xl hover:bg-orange-400 hover:scale-110 duration-300"
+              onClick={backHome}
+            >
+              Home
+            </button>
+          )}
         </form>
-        <div className="mx-10">
-
-        <NavigationBtns />
-        </div>
+        {pokemonList.length > 1 && (
+          <div className="mx-10">
+            <NavigationBtns />
+          </div>
+        )}
       </div>
     </div>
   );

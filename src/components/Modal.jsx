@@ -10,9 +10,9 @@ const Modal = () => {
   return (
     <section
       style={{ marginTop: topHeight }}
-      className="absolute top-9 sm:top-0 left-0 h-screen w-screen flex justify-center items-center"
+      className="absolute top-20 mt-4 sm:top-0 left-0 h-screen w-screen flex justify-center items-center "
     >
-      <div className="flex flex-col sm:flex-row mx-auto flex-wrap gap-6 items-center justify-center p-12 border border-red-600 bg-red-200 rounded-xl absolute">
+      <div className="flex flex-col sm:flex-row mx-auto flex-wrap gap-6 items-center justify-center p-12 border border-red-600 bg-red-200 rounded-xl absolute  md:hover:scale-105 duration-300">
         <div className="absolute top-2 right-3 text-red-700 hover:scale-110 hover:text-red-900 duration-300 ">
           <button onClick={toggleModal}>
             <IoCloseSharp size={"44px"} />
